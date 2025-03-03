@@ -7,14 +7,15 @@ import LocalCrud from './componets/pages/LocalCrud'
 import TaskManager from './componets/pages/TaskManager'
 import LocalStorageCrud from './componets/pages/LocalStorageCrud'
 import Validation from './componets/pages/Validation'
+import Filter from './componets/pages/Filter'
 export default function App() {
   return (
 
     <div>
      
   
-    <Validation />
-
+   
+    <Filter />
    
      
 
