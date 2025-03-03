@@ -8,14 +8,14 @@ import TaskManager from './componets/pages/TaskManager'
 import LocalStorageCrud from './componets/pages/LocalStorageCrud'
 import Validation from './componets/pages/Validation'
 import Filter from './componets/pages/Filter'
+import Search from './componets/pages/Search'
 export default function App() {
   return (
 
     <div>
      
   
-   
-    <Filter />
+    <Search />
    
      
 
