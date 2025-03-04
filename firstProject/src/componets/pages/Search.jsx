@@ -138,6 +138,8 @@ export default function Search() {
     },
   ];
 
+
+
   const searchData = data.filter((item) => 
     item.title.toLowerCase().includes(term.toLowerCase())
   );
