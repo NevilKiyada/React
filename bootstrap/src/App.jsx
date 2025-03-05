@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Navbarj from './components/pages/navbarj'
 import Cardj from './components/pages/cardj'
+import FilterSearch from './components/pages/FilterSearch'
 
 
 function App() {
@@ -8,8 +9,7 @@ function App() {
 
   return (
     <div>
-        <Navbarj />
-        <Cardj />
+        <FilterSearch />
     </div>
   )
 }

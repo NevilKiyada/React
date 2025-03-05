@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
-export default function Search() {
+export default function FilterSearch() {
   const [term, setTerm] = useState("");
+  const [record, setRecord] = useState([]);
+  const [category, setCategory] = useState("all");
 
   const data = [
     {
@@ -139,28 +144,102 @@ export default function Search() {
   ];
 
 
+  const handlSubmit=()=>{
+    const fdata = data.filter((item)=>category=="all"? data : item.category==category);
+    setRecord(fdata)
+    const searchdata = data.filter((item) =>
+        item.title.toLowerCase().includes(term.toLowerCase())
+        
+      );
+    setRecord(searchdata)
+  }
+  
 
-  const searchData = data.filter((item) => 
-    item.title.toLowerCase().includes(term.toLowerCase())
-  );
   return (
     <div>
-      <h1>Searching</h1>
+      {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <a className="navbar-brand" href="#">
+            Navbar
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item active">
+                <a className="nav-link" href="#">
+                  Home <span className="sr-only">(current)</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  Features
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  Pricing
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link disabled" href="#">
+                  Disabled
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav> */}
+
       <input
         type="text"
-        placeholder="Search here"
+        placeholder="Search Product "
         onChange={(e) => setTerm(e.target.value)}
       />
+      <select onChange={(e)=>setCategory(e.target.value)}>
+        <option value="all">All</option>
+        <option value="men's clothing">men's clothing</option>
+        <option value="jewelery">jewelery</option>
+        <option value="electronics">electronics</option>
+      </select>
+      <button onClick={handlSubmit}>Submit</button>     
+      <br />
+      <br />
 
-      {searchData.map((e, i) => {
+      {/* {searchdata.map((e, i) => {
         return (
-          <ul key={i}>
-            <li>
-              {e.title} , {e.price} , {e.category}
-            </li>
-          </ul>
-        );  
-      })}
+          <Card style={{ width: "18rem" }} key={i}>
+            <Card.Img variant="top" src={e.image} />
+            <Card.Body>
+              <Card.Title>{e.title}</Card.Title>
+              <Card.Text>{e.description}</Card.Text>
+              <Button variant="primary">Purchesh</Button>
+            </Card.Body>
+          </Card>
+        );
+      })} */}
+      <hr /><hr /><hr />
+      {
+        record.map((e,i)=>{
+            return(
+                <Card style={{ width: "18rem" }} key={i}>
+            <Card.Img variant="top" src={e.image} />
+            <Card.Body>
+              <Card.Title>{e.title}</Card.Title>
+              <Card.Text>{e.description}</Card.Text>
+              <Button variant="primary">Purchesh</Button>
+            </Card.Body>
+          </Card>
+            )
+        })
+      }
     </div>
   );
 }
