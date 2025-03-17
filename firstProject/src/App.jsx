@@ -1,15 +1,11 @@
 import React from 'react'
-import First from './componets/pages/first'
-import CartLoop from './componets/pages/cartloop'
-import Counter from './componets/pages/counter'
-import Crud from './componets/pages/Crud'
-import LocalCrud from './componets/pages/LocalCrud'
-import TaskManager from './componets/pages/TaskManager'
-import LocalStorageCrud from './componets/pages/LocalStorageCrud'
-import Validation from './componets/pages/Validation'
-import Filter from './componets/pages/Filter'
-import Search from './componets/pages/Search'
-import {BrowserRouter, Routes} from "react-router-dom"
+
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom"
+
+import One from './componets/page/One'
+import Two from './componets/page/Two'
+import Three from './componets/page/Three'
+
 
 
 export default function App() {
@@ -17,9 +13,19 @@ export default function App() {
 
     <div>
 
- 
-      <Search />
+      <BrowserRouter>
+      <h2>NavBar</h2>
+      <Routes>
+        <Route path='/' Component={One}></Route>
+        <Route path='/two' Component={Two}></Route>
+        <Route path='/three/:id' Component={Three}></Route>
 
+    
+      </Routes>
+      
+      </BrowserRouter>
+      
+    
     </div>
   )
 }
