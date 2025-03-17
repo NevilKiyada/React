@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function Search() {
   const [term, setTerm] = useState("");
@@ -143,8 +144,17 @@ export default function Search() {
   const searchData = data.filter((item) => 
     item.title.toLowerCase().includes(term.toLowerCase())
   );
+  const navigation =useNavigate();
+  const handleSubmit=()=>{
+    navigation("/first",{replace:true});}
+
+  npm 
   return (
+
+
+    
     <div>
+      <button onClick={handleSubmit()}>submit</button>
       <h1>Searching</h1>
       <input
         type="text"

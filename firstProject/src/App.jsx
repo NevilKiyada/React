@@ -9,15 +9,16 @@ import LocalStorageCrud from './componets/pages/LocalStorageCrud'
 import Validation from './componets/pages/Validation'
 import Filter from './componets/pages/Filter'
 import Search from './componets/pages/Search'
+import {BrowserRouter, Routes} from "react-router-dom"
+
+
 export default function App() {
   return (
 
     <div>
-     
-  
-    <Search />
-   
-     
+
+ 
+      <Search />
 
     </div>
   )
