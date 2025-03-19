@@ -11,6 +11,7 @@ export default function Read({record}) {
        {
         record.map((e,i)=>{
         return    <ul key={i}>
+            <li>{e.id}</li>
             <li>{e.name}</li>
             <li>{e.subject}</li>
         </ul>

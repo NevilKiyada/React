@@ -9,6 +9,8 @@ export default function Writ({data,setData}) {
   const handleBtn = ()=>{
     let obj = {id:data.length +1 ,name,subject}
     setData([...data,obj])
+    console.log(obj);
+    
     navigat("/read")
 
   }

@@ -14,7 +14,7 @@ import Delete from './componets/crud/Delete'
 
 export default function App() {
   const [data,setData] =useState([{
-    name: "inc", subject: "maths"
+   id:1, name: "inc", subject: "maths"
   }])
   return (
 
@@ -30,8 +30,8 @@ export default function App() {
 
         <Route path='/read' element={<Read record={data}/>}></Route>
         <Route path='/writ' element={<Writ data={data} setData={setData}/>}></Route>
-        <Route path='/update' element={<Update record={data}/>}></Route>
-        <Route path='/delete' element={<Delete record={data}/>}></Route>
+        <Route path='/update' element={<Update data={data} setData={setData}/>}></Route>
+        <Route path='/delete' element={<Delete data={data} setData={setData}/>}></Route>
 
 
     
