@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom"
 
@@ -13,9 +13,9 @@ import Delete from './componets/crud/Delete'
 
 
 export default function App() {
-  const data =[{
+  const [data,setData] =useState([{
     name: "inc", subject: "maths"
-  }]
+  }])
   return (
 
     <div>
@@ -29,7 +29,7 @@ export default function App() {
         <Route path='/three/' Component={Three}></Route>
 
         <Route path='/read' element={<Read record={data}/>}></Route>
-        <Route path='/writ' element={<Writ record={data}/>}></Route>
+        <Route path='/writ' element={<Writ data={data} setData={setData}/>}></Route>
         <Route path='/update' element={<Update record={data}/>}></Route>
         <Route path='/delete' element={<Delete record={data}/>}></Route>
 
